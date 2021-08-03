@@ -56,15 +56,40 @@ img {
 	text-align: center;
 }
 
-
 header,
 section {
-	padding: 3rem 0;
+  padding: 4rem 0;
+  @media (min-width: 40em) {
+    header,
+    section {
+      padding: 7rem 0;
+    }
+  }
 }
 
 .container {
 	margin-inline: auto;
 	width: min(90%, 70.5rem)
+}
+
+.split {
+	display: flex;
+	flex-direction: column;
+}
+
+@media (min-width: 40em) {
+	.split {
+		flex-direction: row;
+	}
+	/* all the direct children of the split*/
+	.split > * {
+		flex-basis: 100%;
+	}
+	/* json sibling selector | Any element have the sibling before it */
+	.split > * + * {
+		/* it doesn't get margin added to the left side */
+		margin-left: 2em;
+	}
 }
 
 .container--narrow {
